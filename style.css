@@ -1,156 +1,130 @@
-/* Fundo rosa com gradiente e posição relativa para layering */
 body {
-  margin: 0;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-  background: linear-gradient(to right, #ff9a9e, #fad0c4);
-  overflow-x: hidden;
-  position: relative;
-  min-height: 100vh;
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
 }
 
-/* Contêiner dos corações animados — atrás do conteúdo */
 .hearts {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* Corações individuais */
 .floating-heart {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  background: url('https://i.imgur.com/OJXrqGx.png') no-repeat center;
-  background-size: contain;
-  opacity: 0.8;
-  animation-name: floatUp;
-  animation-timing-function: ease-in;
-  animation-iteration-count: infinite;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: url('https://i.imgur.com/OJXrqGx.png') no-repeat center/contain;
+  opacity: 0.8;
+  animation: floatUp linear infinite;
 }
 
-/* Animação dos corações subindo */
 @keyframes floatUp {
-  0% {
-    transform: translateY(100vh);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-10vh);
-    opacity: 0;
-  }
+  0% {
+    transform: translateY(100vh);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh);
+    opacity: 0;
+  }
 }
 
-/* Container principal branco com sombra rosa */
 .container {
-  position: relative;
-  max-width: 700px;
-  margin: 80px auto 40px;
-  background: white;
-  border-radius: 30px;
-  box-shadow: 0 0 30px rgba(255, 0, 123, 0.5);
-  padding: 30px;
-  text-align: center;
-  z-index: 1;
+  z-index: 1;
+  position: relative;
+  max-width: 900px;
+  margin: 80px auto;
+  background: white;
+  border-radius: 30px;
+  box-shadow: 0 0 30px rgba(255, 0, 123, 0.5);
+  padding: 30px;
+  text-align: center;
 }
 
-/* Título e gif */
 h1 {
-  font-size: 2.5em;
-  color: #ff007f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
+  font-size: 2.5em;
+  color: #ff007f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .heart-gif {
-  width: 35px;
-  height: 35px;
+  width: 35px;
+  height: 35px;
 }
 
 p {
-  font-size: 1.3em;
-  color: #ff4d6d;
-  margin-top: 20px;
+  font-size: 1.3em;
+  color: #ff4d6d;
+  margin-top: 20px;
 }
 
-/* Galeria de imagens — flexível e responsiva */
 .gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 30px 0;
 }
 
-/* Imagens todas do mesmo tamanho e sem distorção */
 .gallery img {
-  width: 140px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 140px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Vídeo com borda arredondada e sombra */
 video {
-  margin-top: 30px;
-  width: 100%;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(255, 0, 123, 0.4);
+  margin-top: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(255, 0, 123, 0.4);
+  width: 100%;
 }
 
-/* Media Queries para responsividade geral em vários dispositivos */
+/* RESPONSIVO */
 @media (max-width: 1024px) {
-  .container {
-    max-width: 90%;
-    margin: 50px auto 30px;
-    padding: 25px;
-  }
-  h1 {
-    font-size: 2.2em;
-  }
-  p {
-    font-size: 1.2em;
-  }
-  .gallery img {
-    width: 120px;
-    height: 90px;
-  }
+  .gallery img {
+    width: 120px;
+    height: 90px;
+  }
 }
 
 @media (max-width: 768px) {
-  h1 {
-    font-size: 1.8em;
-  }
-  p {
-    font-size: 1.1em;
-  }
-  .gallery img {
-    width: 100px;
-    height: 75px;
-  }
+  .container {
+    margin: 40px 20px;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2em;
+    flex-direction: column;
+  }
+
+  p {
+    font-size: 1.1em;
+  }
+
+  .gallery img {
+    width: 100px;
+    height: 80px;
+  }
 }
 
 @media (max-width: 480px) {
-  h1 {
-    font-size: 1.5em;
-  }
-  p {
-    font-size: 1em;
-  }
-  .gallery {
-    gap: 10px;
-  }
-  .gallery img {
-    width: 90px;
-    height: 68px;
-  }
+  .gallery img {
+    width: 90px;
+    height: 70px;
+  }
 }
-
