@@ -14,7 +14,8 @@ body {
   top: 0;
   left: 0;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1; /* Ajustado para ficar na frente do fundo */
+  background: transparent;
 }
 
 .floating-heart {
@@ -23,7 +24,7 @@ body {
   height: 30px;
   background: url('https://i.imgur.com/OJXrqGx.png') no-repeat center/contain;
   opacity: 0.8;
-  animation: floatUp linear infinite;
+  animation: floatUp linear forwards; /* Retirado infinite para animação terminar */
 }
 
 @keyframes floatUp {
@@ -38,7 +39,7 @@ body {
 }
 
 .container {
-  z-index: 1;
+  z-index: 10; /* Conteúdo acima dos corações */
   position: relative;
   max-width: 900px;
   margin: 80px auto;
