@@ -1,32 +1,39 @@
+/* Fundo rosa com gradiente e posição relativa para layering */
 body {
   margin: 0;
   font-family: 'Comic Sans MS', cursive, sans-serif;
   background: linear-gradient(to right, #ff9a9e, #fad0c4);
   overflow-x: hidden;
   position: relative;
+  min-height: 100vh;
 }
 
-/* Fundo animado com corações */
+/* Contêiner dos corações animados — atrás do conteúdo */
 .hearts {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
 }
 
+/* Corações individuais */
 .floating-heart {
   position: absolute;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   background: url('https://i.imgur.com/OJXrqGx.png') no-repeat center;
   background-size: contain;
-  animation: floatUp ease-in infinite;
   opacity: 0.8;
+  animation-name: floatUp;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
 }
 
+/* Animação dos corações subindo */
 @keyframes floatUp {
   0% {
     transform: translateY(100vh);
@@ -38,18 +45,20 @@ body {
   }
 }
 
+/* Container principal branco com sombra rosa */
 .container {
-  z-index: 1;
   position: relative;
   max-width: 700px;
-  margin: 100px auto;
+  margin: 80px auto 40px;
   background: white;
   border-radius: 30px;
   box-shadow: 0 0 30px rgba(255, 0, 123, 0.5);
   padding: 30px;
   text-align: center;
+  z-index: 1;
 }
 
+/* Título e gif */
 h1 {
   font-size: 2.5em;
   color: #ff007f;
@@ -71,7 +80,7 @@ p {
   margin-top: 20px;
 }
 
-/* Galeria de imagens */
+/* Galeria de imagens — flexível e responsiva */
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -80,6 +89,7 @@ p {
   margin-top: 30px;
 }
 
+/* Imagens todas do mesmo tamanho e sem distorção */
 .gallery img {
   width: 140px;
   height: 100px;
@@ -88,7 +98,7 @@ p {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Vídeo */
+/* Vídeo com borda arredondada e sombra */
 video {
   margin-top: 30px;
   width: 100%;
@@ -96,89 +106,51 @@ video {
   box-shadow: 0 4px 10px rgba(255, 0, 123, 0.4);
 }
 
-/* Celulares pequenos (até 480px) */
-@media (max-width: 480px) {
-  .container {
-    margin: 20px 10px;
-    padding: 15px;
-  }
-
-  h1 {
-    font-size: 1.5em;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  p {
-    font-size: 1em;
-  }
-
-  .gallery {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .gallery img {
-    width: 95%;
-    height: auto;
-    margin-bottom: 15px;
-  }
-}
-
-/* Tablets e celulares maiores (até 768px) */
-@media (max-width: 768px) {
-  .container {
-    margin: 30px 15px;
-    padding: 20px;
-  }
-
-  h1 {
-    font-size: 1.8em;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  p {
-    font-size: 1.1em;
-  }
-
-  .gallery {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .gallery img {
-    width: 45%;
-    height: auto;
-  }
-}
-
-/* Laptops e telas médias (até 1024px) */
+/* Media Queries para responsividade geral em vários dispositivos */
 @media (max-width: 1024px) {
   .container {
-    margin: 50px 20px;
+    max-width: 90%;
+    margin: 50px auto 30px;
     padding: 25px;
   }
-
   h1 {
     font-size: 2.2em;
-    flex-direction: row;
-    text-align: center;
   }
-
   p {
     font-size: 1.2em;
   }
-
-  .gallery {
-    justify-content: center;
-    gap: 15px;
-  }
-
   .gallery img {
-    width: 140px;
-    height: 100px;
+    width: 120px;
+    height: 90px;
   }
 }
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8em;
+  }
+  p {
+    font-size: 1.1em;
+  }
+  .gallery img {
+    width: 100px;
+    height: 75px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5em;
+  }
+  p {
+    font-size: 1em;
+  }
+  .gallery {
+    gap: 10px;
+  }
+  .gallery img {
+    width: 90px;
+    height: 68px;
+  }
+}
+
