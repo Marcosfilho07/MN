@@ -22,10 +22,11 @@ body {
   position: absolute;
   width: 30px;
   height: 30px;
-  background: url('https://i.imgur.com/OJXrqGx.png') no-repeat center/contain;
+  background: url('https://i.imgur.com/ZfP6CkF.png') no-repeat center/contain;
   opacity: 0.8;
   animation: floatUp linear forwards;
 }
+
 
 @keyframes floatUp {
   0% {
