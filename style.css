@@ -24,7 +24,7 @@ body {
   height: 30px;
   background: url('https://i.imgur.com/OJXrqGx.png') no-repeat center/contain;
   opacity: 0.8;
-  animation: floatUp linear forwards; /* Retirado infinite para animação terminar */
+  animation: floatUp linear forwards;
 }
 
 @keyframes floatUp {
